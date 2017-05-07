@@ -1,0 +1,13 @@
+MAY 6TH 2017
+--
+I want to make a project that is a bit more animation-oriented. 
+Going to create a website that explores the solar system, and provides facts on it. Oriented for children. 
+
+https://site.uplabs.com/posts/pluto-info-card
+^ This is what I'm going to try to replicate.
+
+Maybe I can learn SASS with this.
+
+
+MAY 7TH 2017
+--

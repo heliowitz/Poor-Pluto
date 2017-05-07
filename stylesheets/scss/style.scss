@@ -1,0 +1,132 @@
+// GENERAL COLORS
+$darkblue: #263238;
+$lightgrey: #7f8c8d;
+
+// PLANET COLORS
+$sun-yellow: #f1c40f;
+
+// PLANET DIAMETERS
+$sun-diameter: 100;
+
+// ORBIT DISTANCES
+$mercury-distance: 200;
+
+
+// MIXINS
+@mixin centerer($width) {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -($width/2) + px;
+	margin-top: -($width/2) + px;
+}
+@mixin makeCircular($diameter) {
+	width: ($diameter)+px;
+	height: ($diameter)+px;
+	-moz-border-radius: ($diameter/2)+px;
+	-webkit-border-radius: ($diameter/2)+px;
+	border-radius: ($diameter/2)+px;
+}
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+
+// ELEMENTS
+body {
+	margin: 0px;
+	padding: 0px;
+}
+#space {
+	width: 100vw;
+	height: 100vh;
+	background-color: $darkblue;
+	overflow: hidden;	
+	position: relative;
+}
+#sun {
+	@include makeCircular($sun-diameter);
+	@include centerer($sun-diameter);
+	background: $sun-yellow;	
+}
+@include keyframes(spin) {
+	0% { 
+		transform: rotate(0deg); 
+	}
+	100% { 
+		transform: rotate(-360deg); 
+	}
+}
+.orbit {
+	border: 2px solid $lightgrey;
+}
+
+#orbit-mercury {
+	@include makeCircular($mercury-distance);
+	@include centerer($mercury-distance);
+	@include animation('spin 5s infinite linear');
+}
+#orbit-venus {
+	@include makeCircular(300);
+	@include centerer(300);
+	@include animation('spin 5s infinite linear');
+}
+#orbit-earth {
+	@include makeCircular(400);
+	@include centerer(400);
+	@include animation('spin 5s infinite linear');
+}
+#orbit-mars {
+	@include makeCircular(500);
+	@include centerer(500);
+	@include animation('spin 5s infinite linear');
+}
+#orbit-jupiter {
+	@include makeCircular(600);
+	@include centerer(600);
+	@include animation('spin 5s infinite linear');
+}
+#orbit-saturn {
+	@include makeCircular(700);
+	@include centerer(700);
+	@include animation('spin 5s infinite linear');
+}
+#orbit-uranus {
+	@include makeCircular(800);
+	@include centerer(800);
+	@include animation('spin 5s infinite linear');
+}
+#orbit-neptune {
+	@include makeCircular(900);
+	@include centerer(900);
+	@include animation('spin 5s infinite linear');
+}
+
+.planet {
+	@include makeCircular(30);
+	background: red;
+	position: absolute;
+	top:85px;
+	left:-15px;
+}
